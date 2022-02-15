@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{%load static%}
+{%load crispy_forms_tags%}
+{%block link%}
+    <link rel="stylesheet" href="{%static 'prof2.css'%}" />
+{%endblock link%}
+{%block title%}
+  Подробноя информация про пост
+{%endblock title%}
+{%block content%}
+
+
+{%endblock content%}
+
+{%block text%}
+<br>
+{%for p in post%}
+<div>
+  <h1 class="left-c down-a"> <a class="un global-color" href="{%url 'info' p.id %}"> {{p.name}} </a></h1>
+  <h4 class="left-c" >{{p.text}}</h4>
+  
+  <h5 class="left-c" >{{p.time}}</h5>
+  <h5 class="left-c" >{{p.auth}}</h5>
+  <hr>
+</div>
+{%endfor%}
+
+
+{%endblock text%}

@@ -1,0 +1,167 @@
+body {
+    background: url('2.jpg');
+    height: 100%;
+    color: white;
+  }
+
+
+
+.global-color{
+    color: #ffffff;
+}
+.size-text{
+    font-size: 20px;
+}
+.size-text-2{
+    font-size: 35px;
+}
+.global-bar-color{
+    color: #9b0000;
+}
+
+.global-color-bar{
+    color: rgb(243, 243, 243);
+    font-size: 17px;
+
+}
+.undergraund {
+    text-decoration: none;
+   }
+.undergraund:hover {
+    text-decoration: underline;
+   }
+
+.un {
+    text-decoration: none;
+   }
+
+
+.box{
+background: url('5.jpg');
+height: 100%;
+color: white;
+}
+.box2{
+    background: url('3.jpg');
+    height: 100%;
+    color: white;
+    }
+.text-text-center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+.popins{
+    position: relative;
+    width: 160px;
+    height: 50px;
+    background: rgb(26, 26, 26);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+
+
+.ver-2::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #005d9b;
+    transition: 0.5s ease-in-out;
+}
+.ver-2{
+    position: absolute;
+    z-index: 1;
+    color: #ffffff;
+}
+.ver{
+    position: absolute;
+    z-index: 1;
+    color: #ffffff;
+}
+.ver-2::after{
+    content: '';
+    position: absolute;
+    
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background: #005d9b;
+    transition: 0.5s ease-in-out;
+}
+.ver-2:nth-child(2)::before,
+.ver-2:nth-child(2)::after{
+    background: #005d9b; 
+
+}
+.ver-2:hover::before,
+.ver-2:hover::after{
+    width: 50%;
+
+}
+
+
+.left-t{
+    margin-left: 350px;
+}
+.left-b{
+    margin-left:125px;
+}
+.left-c{
+    margin-left:70px;
+}
+.left-a{
+    margin-right:70px;
+}
+.down-a{
+    margin-top:70px;
+}
+form{
+    margin-left: 35%;
+    width: 500px;
+    margin-top: 50px;
+}
+.ll{
+    margin-left: 30%;
+}
+.lll{
+    margin-left: 50%;
+}
+
+.w{
+    margin-left: 30%;
+}
+.wot{
+    margin-top: 10px;
+}
+.ww{
+    margin-left: 20px;
+}
+
+.semi-transparent-button {
+  display: block;
+  box-sizing: border-box;
+  margin: 2 auto;
+  padding: 8px;
+  width: 80%;
+  max-width:200px;
+  background: #fff; /* запасной цвет для старых браузеров */
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-out;
+}

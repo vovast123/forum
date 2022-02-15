@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+{%load static%}
+{%load crispy_forms_tags%}
+{%block title%}
+      Все вопросы 
+{%endblock title%}
+{%block content%}
+<div class=" container top-container">
+  <div class="page-title top-content">
+    <div class="row"> 
+        <h1 class="text-left "><br><br><br>Все вопросы когда либо создание на сайте сейчас)<br><br><br></h1>
+    </div>
+  </div>
+</div>
+
+{%endblock content%}
+
+{%block text%}
+<br>
+{%for p in post%}
+<div>
+  <h1 class="left-c down-a"> <a class="un global-color" href="{%url 'info' p.id %}"> {{p.name}} </a></h1>
+  <h4 class="left-c" >{{p.text}}</h4>
+  
+  <h5 class="left-c" >{{p.time}}</h5>
+  <h5 class="left-c" >{{p.auth}}</h5>
+   <form action="{% url 'add-likee' p.id %}" class="left-c wot" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ request.path }}">
+    <button type="submit" style="border:none; background:none;">
+        <i class="fa fa-heart" aria-hidden="true" style="color: rgb(16, 71, 16);"> <span>{{ p.likes.all.count }}</span></i>
+    </button>
+</form>  
+  <hr>
+</div>
+{%endfor%}
+
+{%endblock text%}

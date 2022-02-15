@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+{%load static%}
+{%load crispy_forms_tags%}
+{%block link%}
+    <link rel="stylesheet" href="{%static 'prof2.css'%}" />
+{%endblock link%}
+{%block title%}
+  Подробноя информация про пост
+{%endblock title%}
+{%block content%}
+
+
+{%endblock content%}
+
+{%block text%}
+<br>
+{%for p in art%}
+<div>
+  <h1 class="left-c down-a">{{p.text_article}} </h1>
+  <h4 class="left-c" >{{p.time_article}}</h4>
+  
+  <h5 class="left-c" >Пост к которому привязан - {{p.post_article}}</h5>
+  <form action="{% url 'add-likeartt' p.id %}" class="left-c wot" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ request.path }}">
+    <button type="submit" style="border:none; background:none;">
+        <i class="fa fa-heart" aria-hidden="true" style="color: rgb(16, 71, 16);"> <span>{{ p.likes_article.all.count }}</span></i>
+    </button>
+    </form>
+  <hr>
+</div>
+{%endfor%}
+{%endblock%}

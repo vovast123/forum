@@ -1,0 +1,58 @@
+{%extends 'base.html'%}
+{%load static%}
+{%load crispy_forms_tags%}
+{%block title%}
+  Вход
+{%endblock title%}
+{%block content%}
+<div class=" container top-container">
+  <div class="page-title top-content">
+    <div class="row"> 
+      <h1 class="text-left left-b"><br><br><br><br><br>Kababik-Войдите в свой созданый аккаунт  <br><br><br><br></h1>
+    </div>
+  </div>
+</div>
+{%endblock content%}
+{%block text%}
+{%for messages in messages%}
+<p id="messages" class="global-color text-center">{{messages}} </p>
+{%endfor%}
+<form method = "POST" >
+  {%csrf_token%}
+  <div class="w">
+    <div class="col">
+      <p class="global-color">Введите логин</p>
+      <input type="text" name="username" placeholder="Логин...."class="form-control">
+    </div>
+    <br>
+    <div class="col">
+      <p class="global-color">Введите Пароль</p>
+      <input type="password" name="password" placeholder="Пароль...." class="form-control">
+    </div>
+    <br>
+    <div class="col">
+
+
+
+    </div>
+    <br>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-success ll" type="submit">Войти</button>
+  
+
+</form>
+<br>
+<p class="global-color text-center">Если у вас нет аккаунта вы можете зарегестрировать его</p>
+<div class="d-grid gap-2 col-6 mx-auto">
+  <a class="text-center size-text-2 "  href="{%url 'reg'%}" >
+    <button type="button" class="btn btn-outline-danger btn-lg">Создать</button>
+  </a>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{%endblock text%}

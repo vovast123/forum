@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%load static%}
+{%load crispy_forms_tags%}
+{%block link%}
+    <link rel="stylesheet" href="{%static 'prof2.css'%}" />
+{%endblock link%}
+{%block title%}
+  Удалить пост
+{%endblock title%}
+{%block content%}
+
+
+{%endblock content%}
+
+{%block text%}
+<br>
+{%for p in art%}
+<div>
+  <h1 class="left-c down-a"> {{p.text_article}} </h1>
+  <h4 class="left-c" >{{p.time_article}}</h4>
+  <h5 class="left-c" >{{p.post_article}}</h5>
+  <a class="size-text-2 left-c"  href="{%url 'delartt' p.id%}" >
+    <form action="{%url 'delartt' p.id%}" method="POST">
+        {% csrf_token %}
+            <button type="submit" class="btn btn-outline-danger btn-lg">Удалить</button>
+        </form>
+  </a>
+  <hr>
+</div>
+{%endfor%}
+{%endblock text%}

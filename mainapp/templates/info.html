@@ -1,0 +1,80 @@
+{%extends 'base.html'%}
+{%load static%}
+{%load crispy_forms_tags%}
+{%block title%}
+  Подробноя информация про пост
+{%endblock title%}
+{%block content%}
+<div class=" container top-container">
+  <div class="page-title top-content">
+    <div class="row"> 
+ 
+    </div>
+  </div>
+</div>
+
+{%endblock content%}
+
+{%block text%}
+<div>
+  <h1 class="left-c down-a">{{post.name}}</h1>
+  <h4 class="left-c" >{{post.text}}</h4>
+  
+  <h5 class="left-c" >{{post.time}}</h5>
+  <h5 class="left-c" >{{post.auth}}</h5>
+  {% if user.is_authenticated %}
+   <form action="{% url 'add-like' post.id %}" class="left-c wot" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ request.path }}">
+    <button type="submit" style="border:none; background:none;">
+        <i class="fa fa-heart" aria-hidden="true" style="color: rgb(16, 71, 16);"> <span>{{ post.likes.all.count }}</span></i>
+    </button>
+  {%else%}
+  <i class="fa fa-heart left-b" aria-hidden="true" style="color: rgb(16, 71, 16);"> <span>{{ post.likes.all.count }}</span></i>
+  {%endif%}
+</form> 
+
+  <hr>
+</div>
+<h3 class="left-c" >Коментарии:</h3>
+{% if user.is_authenticated %}
+<form method = "POST" class="left-c" >
+  <div>
+    <div>
+      <h3>Создайте свой комент...</h3>
+     {{form}}
+    </div>
+    <br>
+  </div>
+
+  {%csrf_token%}
+  <button type="submit" class="btn btn-danger" type="submit">Оставить коментарий</button>
+  <br>
+</form>
+{%else%}
+<h3 class="global-color">Для создания нужно войти в аккаунт</h3>
+{%endif%}
+<br>
+<hr>
+<br>
+{%for a in art%}
+<div class="left-c">
+  <h5>{{a.auth_article}}</h5>   
+  <h5>{{a.text_article}}</h5>
+  <em>{{a.time_article}}</em>
+  {% if user.is_authenticated %}
+  <form action="{% url 'add-likeart' a.id %}" class="left-c wot" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ request.path }}">
+    <button type="submit" style="border:none; background:none;">
+        <i class="fa fa-heart" aria-hidden="true" style="color: rgb(16, 71, 16);"> <span>{{ a.likes_article.all.count }}</span></i>
+    </button>
+    </form>
+{%else%}
+    <i class="fa fa-heart" aria-hidden="true" style="color: rgb(16, 71, 16);"> <span>{{ a.likes_article.all.count }}</span></i>
+{%endif%}
+  <br>
+</div>
+<hr>
+{%endfor%}
+{%endblock text%}

@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+{%load static%}
+{%load crispy_forms_tags%}
+{%block title%}
+  Создание
+{%endblock title%}
+{%block content%}
+<div class=" container top-container">
+  <div class="page-title top-content">
+    <div class="row"> 
+      <h1 class="text-center "><br><br><br>Создания<br> вопроса<br><br><br><br></h1>
+    </div>
+  </div>
+</div>
+{%endblock content%}
+{%block text%}
+<form method = "POST" >
+  {%csrf_token%}
+  <div class="w">
+    <div class="col">
+      
+      <h3 class="global-color">Название....</h3>
+      {{form.name}}
+    </div>
+    <br>
+    <div class="col">
+
+      <h3 class="global-color">Подробное описание</h3>
+      {{form.text}}
+    </div>
+    <br>
+  </div>
+  <br>
+  {% if user.is_authenticated %}
+  <button type="submit" class="btn btn-danger lll" type="submit">Создать   </button>
+  {%else%}
+  <h3 class="global-color">Для создания нужно войти в аккаунт</h3>
+  {%endif%}
+  <br>
+
+</form>
+<br><br><br><br>
+{%endblock text%}

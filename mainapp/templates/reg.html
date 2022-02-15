@@ -1,0 +1,58 @@
+{%extends 'base.html'%}
+{%load static%}
+{%load crispy_forms_tags%}
+{%block title%}
+  Регистрация
+{%endblock title%}
+{%block content%}
+<div class=" container top-container">
+  <div class="page-title top-content">
+    <div class="row"> 
+      <h1 class="text-left left-b"><br><br><br><br><br>Самая быстрая в мире Регистрация без проверки <br><br><br><br></h1>
+    </div>
+  </div>
+</div>
+{%endblock content%}
+{%block text%}
+<h7 class="global-color text-center">{{form.errors}}</h7>
+<form method = "POST" >
+  {%csrf_token%}
+  <div class="w">
+    <div class="col">
+      
+      <p class="global-color">Придумайте логин</p>
+      {{form.username}}
+    </div>
+    <br>
+    <div class="col">
+
+      <p class="global-color">Придумайте Пароль</p>
+      {{form.password1}}
+    </div>
+    <br>
+    <div class="col">
+
+      <p class="global-color">Повторите пароль</p>
+      {{form.password2}}
+    </div>
+    <br>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-success ll" type="submit">Регистрация</button>
+
+</form>
+<br>
+<br>
+<p class="global-color text-center">Если у вас есть аккаунта вы можете зайти </p>
+<div class="d-grid gap-2 col-6 mx-auto">
+  <a class="text-center size-text-2 "  href="{%url 'login'%}" >
+    <button type="button" class="btn btn-outline-danger btn-lg">Ввойти</button>
+  </a>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{%endblock text%}
